@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 
 from PIL import Image
-st.title("Tweet Sentiment Prediction System")
+st.title("Twitter Cyberbulling Detection System")
 def add_bg_from_url():
     st.markdown(
          f"""
@@ -28,11 +28,11 @@ def predict(text):
     x = loaded_vectorizer.transform([text]).toarray() # converting text to bag of words model (Vector)
     pred = loaded_model.predict(x) # predicting the language
     if pred == 0:
-        pred = "Hate"
+        pred = "has cyberbullying tone"
     
     elif pred == 1:
-        pred = "Neutral"
-    st.write("The langauge is: ", pred) # printing th
+        pred = "is Neutral"
+    st.write("This tweet: ", pred) # printing th
      
 a= st.text_input("Enter your Sentence: ")
 if st.button("Predict"):
